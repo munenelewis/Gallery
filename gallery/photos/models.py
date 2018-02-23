@@ -14,6 +14,12 @@ class Image(models.Model):
     description = models.CharField(max_length = 100)
     location = models.ForeignKey(Location, blank=True, null=True)
     category = models.ForeignKey(Category, blank=True, null=True)
+
+    def save_image(self):
+        self.save()
+    
+    def delete_image(self):
+        self.delete()
     
     def __str__(self):
         return self.name
