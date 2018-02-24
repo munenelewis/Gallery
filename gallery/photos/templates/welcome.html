@@ -9,5 +9,23 @@
 <h1> am here to ... </h1>
 
 <button class="btn btn-danger"> dsdkqgdhk</button>
+
+
+{% for images in photos  %}
+
+{{images.location}}
+{{images.description}}
+    {{images.category}}
+{{images.name}}
+
+<img src="{{ images.photo_url|default_if_none:'#' }}" />
+
+
+
+
+
+
+  
+{% endfor %}
 {% endblock  %}
     
