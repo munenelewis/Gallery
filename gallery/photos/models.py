@@ -12,9 +12,10 @@ class Category(models.Model):
 class Image(models.Model):
     name = models.CharField(max_length = 30)
     description = models.CharField(max_length = 100)
-    location = models.ForeignKey(Location, blank=True, null=True)
     category = models.ForeignKey(Category, blank=True, null=True)
     image_url = models.ImageField(upload_to = 'images/',  null=True)
+    location = models.ManyToManyField(Location,null=True )
+
 
 
     def save_image(self):
@@ -31,8 +32,13 @@ class Image(models.Model):
         return photos
     @classmethod
     def search_category(cls, search_term) :
-        photos = cls.objects.filter(category__icontains=search_term)
-        return photos
+        photos = cls.objects.filter(descripton__icontains=search_term)
+        return photos  
+
+
+    @classmethod
+    def filter_by_location(cls, filter_item):
+        photos = cls.objects.filter(Location = Location)  
     @property
     def photo_url(self):
         if self.image_url and hasattr(self.image_url, 'url'):
