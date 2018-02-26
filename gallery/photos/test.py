@@ -26,4 +26,8 @@ class ImageTest(TestCase):
         image = Image.objects.all()
         self.img3.delete_image()
         self.assertTrue(len(image) < 1)
+    def test_get_image(self):
+        image = Image.get_image()
+        self.assertTrue(len(image)> 0 )
+    
 
