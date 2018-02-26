@@ -10,17 +10,21 @@ def welcome(request):
 
     return render(request, 'welcome.html',arg)
 
-def search_results(request):
 
+def photos(request,photo_id):
+    try:
+        photo = Image.objects.get(id = photo_id)
+        print(photo.location)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,"photo.html", {"photo":photo})
+
+def search_results(request):
     if 'photos' in request.GET and request.GET['photos']:
         search_term = request.GET.get('photos')
-        search_photos = Image.search_category(search_term)
-
+        searched_photo = Image.search_by_title(search_term)
         message = f"{search_term}"
-
-        return render(request, 'search.html',{'message':message,'photos':search_photos})
-
+        return render(request, 'search.html', {"message":message, "photos":searched_photo})
     else:
-        message = 'you havent searched anything'
-
-        return render(request,'search.html',{'message':message})
+        message = 'You haven\'t searched for any photos.'
+        return render(request, 'search.html', {"message":message})
