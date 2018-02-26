@@ -1,0 +1,172 @@
+{%extends 'base.html'%} {% block content %}
+<style>
+    body {
+        font: 600 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
+        margin: 12px 0;
+    }
+
+    body {
+        font: 600 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
+        margin: 12px 0;
+    }
+
+    body {
+        font: 600 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
+        margin: 12px 0;
+    }
+
+    .card-container {
+        cursor: pointer;
+        height: 90vh;
+        perspective: 600;
+        position: relative;
+        width: 60%;
+    }
+
+    .card {
+        height: 100%;
+        position: absolute;
+        transform-style: preserve-3d;
+        transition: all 1s ease-in-out;
+        width: 100%;
+    }
+
+    .card:hover {
+        transform: rotateY(180deg);
+    }
+
+    .card .side {
+        backface-visibility: hidden;
+        border-radius: 6px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .card .back {
+        background: #eaeaed;
+        color: #0087cc;
+        line-height: 150px;
+        text-align: center;
+        transform: rotateY(180deg);
+    }
+
+    .card {
+        height: 100%;
+        position: absolute;
+        transform-style: preserve-3d;
+        transition: all 1s ease-in-out;
+        width: 100%;
+    }
+
+    .card:hover {
+        transform: rotateY(180deg);
+    }
+
+    .card .side {
+        backface-visibility: hidden;
+        border-radius: 6px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .card .back {
+        background: #eaeaed;
+        color: #0087cc;
+        line-height: 150px;
+        text-align: center;
+        transform: rotateY(180deg);
+    }
+
+    .card {
+        height: 100%;
+        position: absolute;
+        transform-style: preserve-3d;
+        transition: all 1s ease-in-out;
+        width: 100%;
+    }
+
+    .card:hover {
+        transform: rotateY(180deg);
+    }
+
+    .card .side {
+        backface-visibility: hidden;
+        border-radius: 6px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .card .back {
+        background: #eaeaed;
+        color: #0087cc;
+        line-height: 150px;
+        text-align: center;
+        transform: rotateY(180deg);
+    }
+</style>
+
+<div class="card-container">
+    <div class="card">
+        <div class="side">
+            <img src="{{ photo.photo_url|default_if_none:'#' }}" />
+        </div>
+    
+        <div class="side back"><h1>
+             name:   {{photo.name}}
+        </h1></br>
+<br />
+<h1>
+        location :             {{photo.location.location}}
+
+</h1>
+
+<h1>
+    description :  {{photo.description}}<br />
+    Category : {{photo.category}}
+
+
+</h1></br>
+           
+            <h1>
+            </h1>
+            
+
+
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<!-- The text field -->
+<input type="text" value="{{photo.photo_url}}   " id="myInput">
+
+<!-- The button used to copy the text -->
+<button onclick="myFunction()">Copy text</button>
+
+<script>
+    function myFunction() {
+        /* Get the text field */
+        var copyText = document.getElementById("myInput");
+
+        /* Select the text field */
+        copyText.select();
+
+        /* Copy the text inside the text field */
+        document.execCommand("Copy");
+
+        /* Alert the copied text */
+        alert("Copied the text: " + copyText.value);
+    }
+</script>
+
+
+{% endblock %}
