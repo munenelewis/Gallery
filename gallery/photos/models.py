@@ -14,7 +14,7 @@ class Image(models.Model):
     description = models.CharField(max_length = 100)
     category = models.ForeignKey(Category, blank=True, null=True)
     image_url = models.ImageField(upload_to = 'images/',  null=True)
-    location = models.ManyToManyField(Location,null=True )
+    location = models.ForeignKey(Location,null=True )
 
 
 
@@ -31,9 +31,9 @@ class Image(models.Model):
         photos = cls.objects.filter(location = location)
         return photos
     @classmethod
-    def search_category(cls, search_term) :
-        photos = cls.objects.filter(descripton__icontains=search_term)
-        return photos  
+    def search_by_title(cls, search_term):
+        gallery = cls.objects.filter(description__icontains=search_term)
+        return gallery
 
 
     @classmethod
