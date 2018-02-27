@@ -19,12 +19,16 @@ def photos(request,photo_id):
         raise Http404()
     return render(request,"photo.html", {"photo":photo})
 
+
 def search_results(request):
-    if 'photos' in request.GET and request.GET['photos']:
-        search_term = request.GET.get('photos')
-        searched_photo = Image.search_by_title(search_term)
+    if 'category' in request.GET and request.GET['category']:
+        search_term = request.GET.get('category')
+        searched_categories = Image.search_category(search_term)
         message = f"{search_term}"
-        return render(request, 'search.html', {"message":message, "photos":searched_photo})
+
+        return render(request, 'search.html', {"message": message, "categories": searched_categories})
+
     else:
-        message = 'You haven\'t searched for any photos.'
-        return render(request, 'search.html', {"message":message})
+        message = "You haven't searched for any term"
+        return render(request, '    search.html', {"message": message})
+
