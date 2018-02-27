@@ -1,3 +1,5 @@
+
+
 # THE GALLERY
 
  This web app is a place where users can come in regester and post there pitches for other people to read and comment ...
@@ -71,3 +73,6 @@ No known bugs
 ### License
 
 **[MIT](./LICENSE)** (c) 2017 **[Lewis munene](https://munenelewis.github.io)**
+
+
+![gallery](gallaria.png)
