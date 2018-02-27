@@ -80,8 +80,8 @@ img{
     display: block;
     width: 600px;
     height: 600px;
-    margin: 0 auto 150px;
-    background-color: #e50606;
+    margin-bottom: 150px;
+    margin-left: 0;
 }
 .textblock-home-2 {
     position: absolute;

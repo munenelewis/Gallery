@@ -1,6 +1,8 @@
 {%extends 'base.html'%} {% block content %}
 <style>
-
+    body{
+        background-color:black;
+    }
     .card-container {
         cursor: pointer;
         height: 90vh;
@@ -86,6 +88,7 @@
         position: absolute;
         overflow: hidden;
         width: 100%;
+        background-color: black;
     }
 
     .card .back {
@@ -94,6 +97,15 @@
         line-height: 150px;
         text-align: center;
         transform: rotateY(180deg);
+    }
+    .list-group-item {
+        position: relative;
+        display: block;
+        padding: .75rem 1.25rem;
+        margin-bottom: -1px;
+        background-color: #fff;
+        border: 1px solid rgba(0,0,0,.125);
+        background-color: #86a297;
     }
 </style>
 

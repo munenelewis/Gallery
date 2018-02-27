@@ -9,14 +9,18 @@
 
  {% if categories %}
     {% for category in categories %}
-    <div class="col-xs-4 col-sm-4 col-md-4 mt-5">
-      <div class="" style="width: 18rem;">
-        <img src="{{category.image.url}}"  class="img-responsive">
-        <div class="">
-            <a href="{% url 'photos' category.id %}">view more</a>
-        </div>
+  
+
+  <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"> Found {{ categories|length }} of searched term {{message}}
+        </h5>
+       
+        <a href="{% url 'photos' category.id %}" class="badge badge-primary">view more</a>
       </div>
-  </div>
+    </div>
+
+  
   {% endfor %}
 {% endif %}
 {% endblock %}
