@@ -1,19 +1,5 @@
 {%extends 'base.html'%} {% block content %}
 <style>
-    body {
-        font: 600 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
-        margin: 12px 0;
-    }
-
-    body {
-        font: 600 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
-        margin: 12px 0;
-    }
-
-    body {
-        font: 600 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
-        margin: 12px 0;
-    }
 
     .card-container {
         cursor: pointer;
@@ -111,35 +97,24 @@
     }
 </style>
 
-<div class="card-container">
+<div class="card-container container-fluid">
     <div class="card">
         <div class="side">
-            <img src="{{ photo.photo_url|default_if_none:'#' }}" />
+            <img src="{{ photo.photo_url|default_if_none:'#' }}"class="img-fluid" />
         </div>
-    
-        <div class="side back"><h1>
-             name:   {{photo.name}}
-        </h1></br>
-<br />
-<h1>
-        location :             {{photo.location.location}}
 
-</h1>
+        <div class="side back" style="text-align: left;">
+                <ul class="list-group">
+                        <li class="list-group-item"> name: {{photo.name}}</li>
+                        <li class="list-group-item"> location : {{photo.location.location}}</li>
+                        <li class="list-group-item"> description : {{photo.description}}</li>
+                        <li class="list-group-item">Category : {{photo.category}}   </li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                      </ul>
 
-<h1>
-    description :  {{photo.description}}<br />
-    Category : {{photo.category}}
-
-
-</h1></br>
            
-            <h1>
-            </h1>
-            
-
-
-
         </div>
+        
 
     </div>
 </div>
